@@ -25,7 +25,8 @@ class DungeonTest {
     oos.close();
     FileInputStream fis = new FileInputStream("dg.ser");
     ObjectInputStream ois = new ObjectInputStream(fis);
-    d = (DungeonGame) ois.readObject();
+    d = (DungeonGame) 
+    ois.readObject();
     ois.close(); 
     } catch (Exception e) {
     e.printStackTrace();
