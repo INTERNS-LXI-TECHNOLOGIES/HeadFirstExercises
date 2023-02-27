@@ -15,7 +15,7 @@ class Accum {
  public static Accum getAccum() {
  return a;
  }
- public void updateCounter(int add) {
+ public void setCounter(int add) {
  counter += add;
  }
  public int getCount() {
@@ -26,7 +26,7 @@ class ThreadOne implements Runnable {
  Accum a = Accum.getAccum();
  public void run() {
  for(int x=0; x < 98; x++) {
- a.updateCounter(1000);
+ a.setCounter(1000);
  try {
  Thread.sleep(50);
  } catch(InterruptedException ex) { }
@@ -39,7 +39,7 @@ class ThreadTwo implements Runnable {
  Accum a = Accum.getAccum();
  public void run() {
  for(int x=0; x < 99; x++) {
- a.updateCounter(1);
+ a.setCounter(1);
  try {
  Thread.sleep(50);
  } catch(InterruptedException ex) { }
