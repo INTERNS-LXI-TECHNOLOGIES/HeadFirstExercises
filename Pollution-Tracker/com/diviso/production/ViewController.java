@@ -1,4 +1,5 @@
 package com.diviso.production;
+import com.diviso.launch.*;
 import java.util.*;
 import java.text.*;
 
@@ -30,6 +31,8 @@ public class ViewController
     public String getDateString() {return dateString;}
 
     PollutionService pollutionService = new PollutionService();
+    Vehicle vehicle = new Vehicle();
+    VehicleInfo vehicleInfo = new VehicleInfo();
     TwoWheel twoWheel = new TwoWheel();
     FourWheel fourWheel = new FourWheel();
     SixWheel sixWheel = new SixWheel();
@@ -42,6 +45,12 @@ public class ViewController
     //System.out.println(date);
     Scanner sc =new Scanner(System.in);
 
+    /*for(int i = 0; i<100; i++)
+    {
+        pollutionService.add(vehicle);
+    }
+    */
+    
     public void viewInfoOne() {
         System.out.println("\t\t\t\t " + " Welcome To Performance Vehicle Service ");
         System.out.println("\t \t =======================================================" + "\n");
@@ -98,7 +107,6 @@ public class ViewController
                 break;
             }
         }
-        //check = true;
     }
 
     public void viewInfoTwo()
@@ -111,7 +119,7 @@ public class ViewController
 
         setChoose2(sc.nextInt());
 
-        while(check){
+        while(getCheck()){
             switch (getChoose2()) {
                 case 1:
                     if (getChoose2() == 1) {
@@ -138,6 +146,7 @@ public class ViewController
             }
             System.out.println("Do you want to continue press (y) or Want to exit press (n) ");
             setButton2(sc.nextLine());
+
             if(getButton2().equals("n"))
             {
                 break;
@@ -162,8 +171,6 @@ public class ViewController
             System.out.println("Enter Today's Date : ");
             setDateString(sc.nextLine());
             date = df.parse(getDateString());
-            //print Pollution-Certificate with vehicle pollution details
-            //store entered regNo into a space
         }
         catch (Exception e)
         {
@@ -191,8 +198,6 @@ public class ViewController
             System.out.println("Enter Today's Date : ");
             setDateString(sc.nextLine());
             date = df.parse(getDateString());
-            //print Pollution-Certificate with vehicle pollution details
-            //setDate(sc.nextLine());
         }
         catch (Exception e)
         {
@@ -220,14 +225,18 @@ public class ViewController
             System.out.println("Enter Today's Date : ");
             setDateString(sc.nextLine());
             date = df.parse(getDateString());
-
-            //print Pollution-Certificate with vehicle pollution details
-            //setDate(sc.nextLine());
+            //sixWheel.setUpdatedDate(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         finally {
             System.out.println("Code Is Complete!");
         }
+    }
+
+    public void printVehiclePollution() {
+        System.out.println(twoWheel);
+        System.out.println(fourWheel);
+        System.out.println(sixWheel);
     }
 }
